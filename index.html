@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TheBlogger — Lifestyle, Health, Gaming & More</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">TheBlogger</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Lifestyle</a></li>
+          <li><a href="#">Health</a></li>
+          <li><a href="#">Gaming</a></li>
+          <li><a href="#">Travel</a></li>
+          <li><a href="#">Food</a></li>
+          <li><a href="#">Business</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="container main-layout">
+
+    <!-- ===== LEFT / CONTENT COLUMN ===== -->
+    <div class="content-col">
+
+      <!-- Featured Cards Row -->
+      <section class="featured-cards" aria-label="Artículos destacados">
+        <article class="card">
+          <div class="card-img-wrap">
+            <img
+              src="img/travel.jpg"
+              alt="Lago de montaña con aguas turquesas rodeado de picos nevados"
+            />
+            <span class="tag tag--lifestyle">LIFESTYLE</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">The Most Popular Places to Visit in the World</h2>
+            <p class="card-sub">Top Places</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img-wrap">
+            <img
+              src="img/health.jpg"
+              alt="Persona practicando yoga al atardecer en una playa"
+            />
+            <span class="tag tag--health">HEALTH</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Does Exercise Help with your Productivity</h2>
+            <p class="card-sub">Health Chat</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img-wrap">
+            <img
+              src="img/gaming.jpg"
+              alt="Mano sosteniendo un hongo rojo icónico de videojuego"
+            />
+            <span class="tag tag--gaming">GAMING</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Can Playing Video Games Help Reduce Stress?</h2>
+            <p class="card-sub">Game Play</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Featured Post -->
+      <section class="featured-post" aria-label="Artículo principal">
+        <img
+          src="img/vacation.jpg"
+          alt="Vista desde una barca de madera hacia un lago rodeado de bosque y montañas"
+          class="featured-post__img"
+        />
+        <span class="tag tag--travel">TRAVEL</span>
+        <h2 class="featured-post__title">Where to Visit on Your Next Vacation</h2>
+        <p class="featured-post__meta">Written by Jane Doe on December 02, 2019</p>
+        <p class="featured-post__excerpt">
+          There are thousands of places you can visit on your next vacation. In this post
+          we'll show you the top destinations to consider for your next adventure...
+        </p>
+        <a href="#" class="read-more">Continue Reading ↗</a>
+      </section>
+
+      <!-- Post Grid -->
+      <section class="post-grid" aria-label="Más artículos">
+        <article class="post-card">
+          <img src="img/beach.jpg" alt="Grupo de amigos reunidos alrededor de una fogata en la playa" />
+          <h3>Time for the Beach and Friends</h3>
+          <p>Many people live so close to amazing scenery, yet they rarely take...</p>
+          <a href="#" class="read-more">Continue Reading ↗</a>
+        </article>
+
+        <article class="post-card">
+          <img src="img/stars.jpg" alt="Reflejo de la Vía Láctea sobre un lago en calma en la noche" />
+          <h3>Are you Ready for an Experience?</h3>
+          <p>Check out these awesome places you'll want to visit as you set your...</p>
+          <a href="#" class="read-more">Continue Reading ↗</a>
+        </article>
+
+        <article class="post-card">
+          <img src="img/kids.jpg" alt="Niños corriendo y jugando en un bosque con neblina" />
+          <h3>Take Me Back in Time</h3>
+          <p>How nice would that be to go back in time and enjoy the youth... <a href="#" class="read-more">Continue Reading ↗</a></p>
+        </article>
+
+        <article class="post-card">
+          <img src="img/training.jpg" alt="Atleta entrenando con intensidad en un gimnasio al aire libre" />
+          <h3>Here are the Best Ways to Train</h3>
+          <p>Learn about the best ways to train to get the most of your workout...</p>
+          <a href="#" class="read-more">Continue Reading ↗</a>
+        </article>
+      </section>
+
+      <!-- Load More -->
+      <div class="load-more-wrap">
+        <a href="#" class="btn-load-more">LOAD MORE ARTICLES</a>
+      </div>
+
+    </div><!-- /content-col -->
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" aria-label="Barra lateral">
+
+      <!-- Newsletter -->
+      <section class="widget widget--newsletter">
+        <h3 class="widget__title">Subscribe to our Newsletter</h3>
+        <p class="widget__sub">No Spam. Only one email per week.</p>
+        <!-- Formulario con 3 campos: nombre, email, submit -->
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <label for="fname" class="sr-only">First Name</label>
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            class="form-input"
+            placeholder="First Name"
+            required
+          />
+          <label for="email" class="sr-only">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="Email Address"
+            required
+          />
+          <button type="submit" class="btn-subscribe">SUBSCRIBE</button>
+        </form>
+      </section>
+
+      <!-- Categories -->
+      <section class="widget widget--categories">
+        <h3 class="widget__title">Categories</h3>
+        <ul class="category-list">
+          <li><a href="#">Lifestyle</a><span>32</span></li>
+          <li><a href="#">Health</a><span>41</span></li>
+          <li><a href="#">Gaming</a><span>27</span></li>
+          <li><a href="#">Travel</a><span>21</span></li>
+          <li><a href="#">Food</a><span>15</span></li>
+          <li><a href="#">Business</a><span>28</span></li>
+        </ul>
+      </section>
+
+      <!-- Recent Posts -->
+      <section class="widget widget--recent">
+        <h3 class="widget__title">Recent Posts</h3>
+        <ul class="recent-list">
+          <li class="recent-item">
+            <img src="img/travel.jpg" alt="Lago de montaña con destinos turísticos populares" class="recent-thumb" />
+            <div>
+              <a href="#">Top Destinations to Visit in the World</a>
+              <time>January 02, 2021</time>
+            </div>
+          </li>
+          <li class="recent-item">
+            <img src="img/gaming.jpg" alt="Experiencia de gaming en 3D con tecnología moderna" class="recent-thumb" />
+            <div>
+              <a href="#">Experience the Future of the 3d Gaming Experience</a>
+              <time>January 04, 2021</time>
+            </div>
+          </li>
+          <li class="recent-item">
+            <img src="img/vacation.jpg" alt="Viaje a un destino remoto al final del mundo" class="recent-thumb" />
+            <div>
+              <a href="#">Take a Trip to The End of The World</a>
+              <time>January 05, 2021</time>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+    </aside><!-- /sidebar -->
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="logo">TheBlogger</p>
+      <p class="footer-copy">&copy; 2024 TheBlogger. Todos los derechos reservados.</p>
+      <nav class="footer-nav" aria-label="Navegación del pie de página">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

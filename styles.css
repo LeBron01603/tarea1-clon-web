@@ -1,0 +1,546 @@
+/* ============================================================
+   styles.css — TheBlogger Clone
+   Autor: [Tu Nombre]
+   Curso: Desarrollo Web — HTML & CSS
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1. VARIABLES CSS (colores, tipografía, espaciados)
+   ---------------------------------------------------------- */
+:root {
+  --color-primario: #2c7a4b;       /* verde oscuro — acento principal */
+  --color-secundario: #1a1a2e;     /* azul oscuro — textos fuertes    */
+  --color-acento: #f5a623;         /* naranja dorado — hover / botones */
+  --color-fondo: #f9f9f9;
+  --color-superficie: #ffffff;
+  --color-texto: #444444;
+  --color-texto-suave: #888888;
+  --color-borde: #e5e5e5;
+
+  /* Tags de categoría */
+  --tag-lifestyle: #4a90d9;
+  --tag-health:    #e74c3c;
+  --tag-gaming:    #f5a623;
+  --tag-travel:    #2c7a4b;
+
+  --fuente-titulo: 'Playfair Display', serif;
+  --fuente-cuerpo: 'Lato', sans-serif;
+
+  --radio-borde: 4px;
+  --sombra: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --transicion: 0.25s ease;
+}
+
+/* ----------------------------------------------------------
+   2. RESET BÁSICO
+   ---------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Selector de elemento: aplica a todos los párrafos */
+p {
+  line-height: 1.7;
+  color: var(--color-texto);
+  font-family: var(--fuente-cuerpo);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Clase utilitaria para lectores de pantalla (accesibilidad) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------
+   3. LAYOUT GENERAL
+   ---------------------------------------------------------- */
+body {
+  background-color: var(--color-fondo);
+  font-family: var(--fuente-cuerpo);
+  color: var(--color-texto);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/*
+   DECISIÓN DE ESPECIFICIDAD:
+   .main-layout usa display:grid para separar el contenido principal
+   del sidebar. Se usa una clase (.main-layout) en lugar del selector
+   de elemento <main> porque en el futuro podría haber otros <main>
+   en la página sin este layout de dos columnas. La clase tiene más
+   especificidad (0,1,0) que el elemento (0,0,1), lo que permite
+   sobreescribirlo fácilmente si es necesario sin usar !important.
+*/
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 40px;
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+/* ----------------------------------------------------------
+   4. HEADER & NAV
+   ---------------------------------------------------------- */
+.site-header {
+  background-color: var(--color-superficie);
+  border-bottom: 2px solid var(--color-primario);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--sombra);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+/* Selector de clase: logo */
+.logo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--color-secundario);
+  letter-spacing: 1px;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 24px;
+}
+
+/* Selector de elemento dentro de clase: a dentro de .main-nav */
+.main-nav a {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-secundario);
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transicion), color var(--transicion);
+}
+
+/* Pseudo-selector :hover */
+.main-nav a:hover {
+  color: var(--color-primario);
+  border-bottom-color: var(--color-primario);
+}
+
+/* ----------------------------------------------------------
+   5. TAGS DE CATEGORÍA
+   ---------------------------------------------------------- */
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: var(--radio-borde);
+  color: #fff;
+  font-family: var(--fuente-cuerpo);
+  text-transform: uppercase;
+}
+
+.tag--lifestyle { background-color: var(--tag-lifestyle); }
+.tag--health    { background-color: var(--tag-health);    }
+.tag--gaming    { background-color: var(--tag-gaming);    }
+.tag--travel    { background-color: var(--tag-travel);    }
+
+/* ----------------------------------------------------------
+   6. FEATURED CARDS (fila de 3 tarjetas superiores)
+   ---------------------------------------------------------- */
+.featured-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.card {
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  background-color: var(--color-superficie);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+/* Pseudo-selector :hover sobre .card */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+}
+
+.card-img-wrap {
+  position: relative;
+  height: 160px;
+}
+
+.card-img-wrap .tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.card-body {
+  background-color: var(--color-secundario);
+  padding: 12px 14px;
+}
+
+.card-title {
+  font-family: var(--fuente-titulo);
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.card-sub {
+  font-size: 0.75rem;
+  color: var(--color-texto-suave);
+}
+
+/* ----------------------------------------------------------
+   7. FEATURED POST (artículo principal con imagen grande)
+   ---------------------------------------------------------- */
+.featured-post {
+  margin-bottom: 36px;
+}
+
+.featured-post__img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radio-borde);
+  margin-bottom: 12px;
+}
+
+.featured-post .tag {
+  margin-bottom: 10px;
+}
+
+.featured-post__title {
+  font-family: var(--fuente-titulo);
+  font-size: 1.6rem;
+  color: var(--color-secundario);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.featured-post__meta {
+  font-size: 0.78rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 10px;
+}
+
+.featured-post__excerpt {
+  font-size: 0.92rem;
+  margin-bottom: 10px;
+}
+
+/* ----------------------------------------------------------
+   8. READ MORE LINK
+   ---------------------------------------------------------- */
+.read-more {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primario);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color var(--transicion);
+}
+
+/* Pseudo-selector :hover */
+.read-more:hover {
+  color: var(--color-acento);
+}
+
+/* ----------------------------------------------------------
+   9. POST GRID (cuadrícula de 4 posts pequeños)
+   ---------------------------------------------------------- */
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.post-card {
+  background-color: var(--color-superficie);
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  transition: transform var(--transicion);
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+}
+
+.post-card img {
+  height: 160px;
+  object-fit: cover;
+}
+
+.post-card h3 {
+  font-family: var(--fuente-titulo);
+  font-size: 0.95rem;
+  color: var(--color-secundario);
+  padding: 12px 14px 6px;
+  line-height: 1.4;
+}
+
+.post-card p {
+  font-size: 0.82rem;
+  padding: 0 14px 14px;
+  color: var(--color-texto-suave);
+}
+
+/* ----------------------------------------------------------
+   10. LOAD MORE BUTTON
+   ---------------------------------------------------------- */
+.load-more-wrap {
+  text-align: center;
+  padding-bottom: 16px;
+  border-top: 1px solid var(--color-primario);
+  padding-top: 24px;
+}
+
+.btn-load-more {
+  display: inline-block;
+  background-color: var(--color-secundario);
+  color: #fff;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 12px 28px;
+  border-radius: var(--radio-borde);
+  transition: background-color var(--transicion);
+}
+
+.btn-load-more:hover {
+  background-color: var(--color-primario);
+}
+
+/* ----------------------------------------------------------
+   11. SIDEBAR
+   ---------------------------------------------------------- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.widget {
+  background-color: var(--color-superficie);
+  border-radius: var(--radio-borde);
+  padding: 20px;
+  box-shadow: var(--sombra);
+}
+
+.widget__title {
+  font-family: var(--fuente-titulo);
+  font-size: 1rem;
+  color: var(--color-secundario);
+  margin-bottom: 4px;
+}
+
+.widget__sub {
+  font-size: 0.78rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 14px;
+}
+
+/* ----------------------------------------------------------
+   12. NEWSLETTER FORM
+   ---------------------------------------------------------- */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.88rem;
+  color: var(--color-texto);
+  background-color: #fafafa;
+  transition: border-color var(--transicion);
+}
+
+/* Pseudo-selector :focus */
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  background-color: #fff;
+}
+
+.btn-subscribe {
+  width: 100%;
+  padding: 11px;
+  background-color: var(--color-secundario);
+  color: #fff;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+.btn-subscribe:hover {
+  background-color: var(--color-primario);
+}
+
+/* ----------------------------------------------------------
+   13. CATEGORIES WIDGET
+   ---------------------------------------------------------- */
+.category-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-borde);
+  font-size: 0.9rem;
+}
+
+.category-list li:last-child {
+  border-bottom: none;
+}
+
+.category-list a {
+  color: var(--color-texto);
+  transition: color var(--transicion);
+}
+
+.category-list a:hover {
+  color: var(--color-primario);
+}
+
+.category-list span {
+  color: var(--color-texto-suave);
+  font-size: 0.82rem;
+}
+
+/* ----------------------------------------------------------
+   14. RECENT POSTS WIDGET
+   ---------------------------------------------------------- */
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.recent-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.recent-thumb {
+  width: 64px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: var(--radio-borde);
+  flex-shrink: 0;
+}
+
+.recent-item a {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-secundario);
+  line-height: 1.4;
+  display: block;
+  margin-bottom: 4px;
+  transition: color var(--transicion);
+}
+
+.recent-item a:hover {
+  color: var(--color-primario);
+}
+
+.recent-item time {
+  font-size: 0.75rem;
+  color: var(--color-texto-suave);
+}
+
+/* ----------------------------------------------------------
+   15. FOOTER
+   ---------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-secundario);
+  color: #ccc;
+  padding: 24px 0;
+  margin-top: 16px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-footer .logo {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-nav a {
+  font-size: 0.8rem;
+  color: #aaa;
+  transition: color var(--transicion);
+}
+
+.footer-nav a:hover {
+  color: #fff;
+}
