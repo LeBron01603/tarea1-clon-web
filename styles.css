@@ -490,3 +490,95 @@ body {
 .footer-nav a:hover {
   color: #fff;
 }
+/* ==========================================================
+   RESPONSIVE DESIGN
+   ========================================================== */
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  .main-layout {
+    grid-template-columns: 1fr; /* Sidebar baja */
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .content-col {
+    order: 1;
+  }
+
+  .featured-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* HERO CARDS */
+  .featured-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* FEATURED POST */
+  .featured-post__img {
+    height: 200px;
+  }
+
+  /* POSTS */
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    gap: 20px;
+  }
+
+  /* FOOTER */
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px) {
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .card-title {
+    font-size: 0.85rem;
+  }
+
+  .featured-post__title {
+    font-size: 1.2rem;
+  }
+
+}
