@@ -1,13 +1,13 @@
 # Tarea 1 — Clon de Sección de Sitio Real
 
 **Estudiante:** Emiliano Martinez
-**Curso:** Desarrollo Web — HTML & CSS
+**Curso:** Desarrollo Web — HTML & CSS (MULTIMEDIOS)
 **Sitio clonado:** TheBlogger (blog de contenido estilo revista)
-**Repositorio:** `tarea1-clon-web`
+**Repositorio:** `https://github.com/LeBron01603/tarea1-clon-web.git`
 
 ---
 
-## 📸 Comparación: Original vs Clon
+## Comparación: Original vs Clon
 
 ### Original
 ![Screenshot del sitio original](img/screenshot-original.png)
@@ -70,7 +70,7 @@ Se usó la clase `.main-layout` (especificidad 0,1,0) en lugar del selector de e
 
 ---
 
-## 📝 Decisiones de Diseño
+## Decisiones de Diseño
 
 - **Tipografía:** Playfair Display para títulos por su estilo editorial, Lato para el cuerpo por su legibilidad en pantalla.
 - **Variables CSS:** Todos los colores centralizados en `:root` para facilitar cambios globales desde un solo lugar.
@@ -80,11 +80,9 @@ Se usó la clase `.main-layout` (especificidad 0,1,0) en lugar del selector de e
 
 ---
 
-## 🚀 Cómo Ver el Proyecto
-
 1. Clonar el repositorio:
 ```bash
-git clone https://github.com/emilianomartinez/tarea1-clon-web
+git clone https://github.com/LeBron01603/tarea1-clon-web.git
 ```
 2. Abrir `index.html` directamente en el navegador, o usar la extensión **Live Server** en VSCode (clic derecho → *Open with Live Server*).
 
