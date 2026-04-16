@@ -4,13 +4,10 @@
    Curso: Desarrollo Web — HTML & CSS
    ============================================================ */
 
-/* ----------------------------------------------------------
-   1. VARIABLES CSS (colores, tipografía, espaciados)
-   ---------------------------------------------------------- */
 :root {
-  --color-primario: #2c7a4b;       /* verde oscuro — acento principal */
-  --color-secundario: #1a1a2e;     /* azul oscuro — textos fuertes    */
-  --color-acento: #f5a623;         /* naranja dorado — hover / botones */
+  --color-primario: #2c7a4b;       
+  --color-secundario: #1a1a2e;    
+  --color-acento: #f5a623;         
   --color-fondo: #f9f9f9;
   --color-superficie: #ffffff;
   --color-texto: #444444;
@@ -31,16 +28,12 @@
   --transicion: 0.25s ease;
 }
 
-/* ----------------------------------------------------------
-   2. RESET BÁSICO
-   ---------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Selector de elemento: aplica a todos los párrafos */
 p {
   line-height: 1.7;
   color: var(--color-texto);
@@ -63,7 +56,6 @@ ul {
   list-style: none;
 }
 
-/* Clase utilitaria para lectores de pantalla (accesibilidad) */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -88,15 +80,6 @@ body {
   padding: 0 20px;
 }
 
-/*
-   DECISIÓN DE ESPECIFICIDAD:
-   .main-layout usa display:grid para separar el contenido principal
-   del sidebar. Se usa una clase (.main-layout) en lugar del selector
-   de elemento <main> porque en el futuro podría haber otros <main>
-   en la página sin este layout de dos columnas. La clase tiene más
-   especificidad (0,1,0) que el elemento (0,0,1), lo que permite
-   sobreescribirlo fácilmente si es necesario sin usar !important.
-*/
 .main-layout {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -105,9 +88,6 @@ body {
   padding-bottom: 48px;
 }
 
-/* ----------------------------------------------------------
-   4. HEADER & NAV
-   ---------------------------------------------------------- */
 .site-header {
   background-color: var(--color-superficie);
   border-bottom: 2px solid var(--color-primario);
@@ -125,7 +105,6 @@ body {
   padding-bottom: 14px;
 }
 
-/* Selector de clase: logo */
 .logo {
   font-family: var(--fuente-titulo);
   font-size: 1.7rem;
@@ -139,7 +118,6 @@ body {
   gap: 24px;
 }
 
-/* Selector de elemento dentro de clase: a dentro de .main-nav */
 .main-nav a {
   font-family: var(--fuente-cuerpo);
   font-size: 0.85rem;
@@ -158,9 +136,6 @@ body {
   border-bottom-color: var(--color-primario);
 }
 
-/* ----------------------------------------------------------
-   5. TAGS DE CATEGORÍA
-   ---------------------------------------------------------- */
 .tag {
   display: inline-block;
   font-size: 0.7rem;
@@ -178,9 +153,6 @@ body {
 .tag--gaming    { background-color: var(--tag-gaming);    }
 .tag--travel    { background-color: var(--tag-travel);    }
 
-/* ----------------------------------------------------------
-   6. FEATURED CARDS (fila de 3 tarjetas superiores)
-   ---------------------------------------------------------- */
 .featured-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -196,7 +168,6 @@ body {
   transition: transform var(--transicion), box-shadow var(--transicion);
 }
 
-/* Pseudo-selector :hover sobre .card */
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.14);
@@ -231,9 +202,6 @@ body {
   color: var(--color-texto-suave);
 }
 
-/* ----------------------------------------------------------
-   7. FEATURED POST (artículo principal con imagen grande)
-   ---------------------------------------------------------- */
 .featured-post {
   margin-bottom: 36px;
 }
@@ -269,9 +237,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* ----------------------------------------------------------
-   8. READ MORE LINK
-   ---------------------------------------------------------- */
 .read-more {
   font-size: 0.8rem;
   font-weight: 700;
@@ -286,9 +251,6 @@ body {
   color: var(--color-acento);
 }
 
-/* ----------------------------------------------------------
-   9. POST GRID (cuadrícula de 4 posts pequeños)
-   ---------------------------------------------------------- */
 .post-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -327,9 +289,6 @@ body {
   color: var(--color-texto-suave);
 }
 
-/* ----------------------------------------------------------
-   10. LOAD MORE BUTTON
-   ---------------------------------------------------------- */
 .load-more-wrap {
   text-align: center;
   padding-bottom: 16px;
@@ -355,7 +314,7 @@ body {
 }
 
 /* ----------------------------------------------------------
-   11. SIDEBAR
+ SIDEBAR
    ---------------------------------------------------------- */
 .sidebar {
   display: flex;
@@ -383,9 +342,6 @@ body {
   margin-bottom: 14px;
 }
 
-/* ----------------------------------------------------------
-   12. NEWSLETTER FORM
-   ---------------------------------------------------------- */
 .newsletter-form {
   display: flex;
   flex-direction: column;
@@ -404,7 +360,6 @@ body {
   transition: border-color var(--transicion);
 }
 
-/* Pseudo-selector :focus */
 .form-input:focus {
   outline: none;
   border-color: var(--color-primario);
@@ -430,9 +385,6 @@ body {
   background-color: var(--color-primario);
 }
 
-/* ----------------------------------------------------------
-   13. CATEGORIES WIDGET
-   ---------------------------------------------------------- */
 .category-list li {
   display: flex;
   justify-content: space-between;
@@ -460,9 +412,6 @@ body {
   font-size: 0.82rem;
 }
 
-/* ----------------------------------------------------------
-   14. RECENT POSTS WIDGET
-   ---------------------------------------------------------- */
 .recent-list {
   display: flex;
   flex-direction: column;
@@ -502,9 +451,6 @@ body {
   color: var(--color-texto-suave);
 }
 
-/* ----------------------------------------------------------
-   15. FOOTER
-   ---------------------------------------------------------- */
 .site-footer {
   background-color: var(--color-secundario);
   color: #ccc;
